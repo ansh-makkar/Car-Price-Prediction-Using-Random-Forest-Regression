@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import jsonify
 import requests
 import pickle
+import os
 import numpy as np
 import sklearn
 from sklearn.preprocessing import StandardScaler
@@ -55,6 +56,7 @@ def predict():
         return render_template('index.html')
 
 if __name__=="__main__":
-    app.run(debug=True, port=33507)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, port=port)
 
 #My Name is saurab and i am learning git 
